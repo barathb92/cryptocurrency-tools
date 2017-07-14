@@ -1,0 +1,27 @@
+{
+  "name": "Crypto",
+  "version": "0.0.1",
+  "description": "A node program to monitor value of cryptocurrencies",
+  "main": "app.js",
+  "keywords": [
+    "crypto tool",
+    "antshare value tracker"
+  ],
+  "scripts": {
+  },"engines": {
+    "node": ">=6.9.5",
+    "npm": ">=3.10.10"
+  },
+  "devDependencies": {
+    "express": "^4.12.3",
+    "fs": "0.0.1-security",
+    "swagger": "0.7.5",
+    "swagger-express-mw": "^0.1.0",
+    "swagger-tools": "0.10.1",
+    "swagger-ui": "2.2.6",
+    "request": "2.81.0",
+    "nodemailer": "4.0.1",
+    "moment": "2.18.1"
+  },
+  "license": "Apache-2.0"
+}
