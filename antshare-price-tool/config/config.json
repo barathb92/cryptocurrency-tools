@@ -5,13 +5,13 @@
       "port": 587,
       "secure": false,
       "auth": {
-         "user": "txyz@gmail.com",
-         "pass": "abc@123"
+         "user": "toolcrypto@gmail.com",
+         "pass": "crypt@123"
       },
       "tls": {
          "rejectUnauthorized": false
       }
    },
    "mailFrom":"Cryptocurrency Tool <toolcrypto@gmail.com>",
-   "toAddress":"xyz@gmail.com"
+   "toAddress":"007barath@gmail.com"
 }

@@ -2,16 +2,22 @@
 
 //SET EMAIL CONFIGURATION AT CONFIG.JSON
 
-var ALERT_VALUE = 5.35;
+var ALERT_VALUE = 4;
 
-var fs = require('fs');
 var request = require('request');
 var nodemailer = require('nodemailer');
-var config = require('./config.json');
+var config = require('./config/config.json');
 var moment = require('moment')();
 var message;
 var emailSent = false;
 
+var SwaggerExpress = require('swagger-express-mw');
+var SwaggerUi = require('swagger-tools/middleware/swagger-ui');
+var path = require('path');
+var fs = require('fs');
+var app = require('express')();
+
+/*
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport(config.smtpConfig);
 
@@ -55,4 +61,28 @@ request.get('https://min-api.cryptocompare.com/data/price?fsym=ANS&tsyms=USD', f
 		emailSent = true;
 	}
 });
+*/
+
+var swaggerConfig = {
+    appRoot: __dirname
+};
+
+SwaggerExpress.create(swaggerConfig, function(err, swaggerExpress) {
+    if (err) { throw err; }
+
+    // add swagger-ui
+    app.use(SwaggerUi(swaggerExpress.runner.swagger));
+
+    // install middleware
+    swaggerExpress.register(app);
+
+    //start Express
+    var port = process.env.PORT || 5000;
+    app.listen(port);
+
+});
+
+module.exports = {
+    app: app
+};
 

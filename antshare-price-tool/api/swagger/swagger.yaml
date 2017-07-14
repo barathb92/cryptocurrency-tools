@@ -1,0 +1,71 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Cryptocurrency tool
+  description: Cryptocurrency tool
+# during dev, should point to your local machine
+host: localhost:5000 #dev
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+  - multipart/form-data
+  - application/x-www-form-urlencoded
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+  - multipart/form-data
+  - application/x-www-form-urlencoded
+
+paths:
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+  /checkPrice:
+    x-swagger-router-controller: cryptoController
+    post:
+      description: Check the current price of a Cryptocurrency
+      tags:
+        - Crypto
+      operationId: checkCryptoPrice
+      parameters:
+        - name: CurrencyInfo
+          in: body
+          schema:
+            $ref: '#/definitions/CurrencyInfo'
+          required: true
+          description: CryptoCurrency Info to be checked
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/CurrencyInfo"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+definitions:
+  ErrorResponse:
+    required:
+      - error
+    properties:
+      error:
+        type: string
+  CurrencyInfo:
+    type: object
+    required:
+      - CurrencyName
+      - ValueType
+    properties:
+      CurrencyName:
+        type: string
+        description: The name of CryptoCurrencyName in its short form
+      ValueType:
+        type: string
+        description: The denomination to display the value
