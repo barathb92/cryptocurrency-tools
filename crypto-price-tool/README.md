@@ -1,6 +1,6 @@
 ## Live Cryptocurrency Prices
 
-This is a small pet project that uses nodejs, swagger UI, etc. to get the live cryptocurrency prices from the internet
+This is a small pet project that uses Nodej.s, Swagger UI, etc. to get the live cryptocurrency prices from the internet
 
 ### Steps to run the project:
 
@@ -15,16 +15,10 @@ This is a small pet project that uses nodejs, swagger UI, etc. to get the live c
 For example, to get the price of Bitcoin in USD follow the steps:
 
 1. `List Operations` -> `POST /checkPrice` -> `Click on example value to get the sample JSON into parameters text box` 
-2. ```{
-  "CurrencyName": "BTC",
-  "ValueType": "USD"
-}```
+2. `{ "CurrencyName": "BTC", "ValueType": "USD" }`
 3. `Try it out!`
 
 You will be able to get the prices of all the cryptocurrency pairs using their short-name and a specific denomination
 
-Note : If a currency is traded in BTC/LTC/ETH, etc you can enter these as denominations.
-Ex : ```{
-  "CurrencyName": "ETH",
-  "ValueType": "BTC"
-}```
+##### Note : If a currency is traded in BTC/LTC/ETH, etc you can enter these as denominations
+Ex : `{ "CurrencyName": "ETH", "ValueType": "BTC" }`
