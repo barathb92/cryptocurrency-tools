@@ -2,7 +2,6 @@
 
 
 var fs = require('fs');
-var config = require('../../config/config.json');
 var app = require('../../app.js');
 var request = require('request');
 var moment = require('moment')();

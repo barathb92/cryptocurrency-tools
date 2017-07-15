@@ -6,7 +6,7 @@ var ALERT_VALUE = 4;
 
 var request = require('request');
 var nodemailer = require('nodemailer');
-var config = require('./config/config.json');
+var smtpconfig = require('./config/smtp-config.json');
 var moment = require('moment')();
 var message;
 var emailSent = false;
@@ -19,7 +19,7 @@ var app = require('express')();
 
 /*
 // create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport(config.smtpConfig);
+var transporter = nodemailer.createTransport(smtpconfig.smtpConfig);
 
 // verify connection configuration
 transporter.verify(function(error, success) {
@@ -32,7 +32,7 @@ transporter.verify(function(error, success) {
 
 function sendMail (toAddress, subject, message, html) {
     let mailOptions = {
-        from: config.mailFrom,
+        from: smtpconfig.mailFrom,
         to: toAddress,
         subject: subject,
         text: message,
@@ -57,7 +57,7 @@ request.get('https://min-api.cryptocompare.com/data/price?fsym=ANS&tsyms=USD', f
 	message = "Current value of ANS/NEO at "+ moment.format('YYYY-MM-DD HH:mm:ss Z') +" is : " + JSON.parse(body).USD + "$";
 	
 	if(JSON.parse(body).USD < ALERT_VALUE && !emailSent) {
-		sendMail(config.toAddress, "Price Drop Alert for ANS", message, "");
+		sendMail(smtpconfig.toAddress, "Price Drop Alert for ANS", message, "");
 		emailSent = true;
 	}
 });
