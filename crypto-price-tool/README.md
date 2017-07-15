@@ -14,9 +14,9 @@ This is a small pet project that uses Node.js, Swagger UI, etc. to get the live 
 
 For example, to get the price of Bitcoin in USD follow the steps:
 
-1. `List Operations` -> `POST /checkPrice` -> `Click on example value to get the sample JSON into parameters text box` 
+1. List Operations -> `POST /checkPrice` -> Click on example value to get the sample JSON into parameters text box 
 2. `{ "CurrencyName": "BTC", "ValueType": "USD" }`
-3. `Try it out!`
+3. Try it out!
 
 You will be able to get the prices of all the cryptocurrency pairs using their short-name and a specific denomination
 
