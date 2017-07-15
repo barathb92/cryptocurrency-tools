@@ -1,6 +1,6 @@
 ## Live Cryptocurrency Prices
 
-This is a small pet project that uses Nodej.s, Swagger UI, etc. to get the live cryptocurrency prices from the internet
+This is a small pet project that uses Node.js, Swagger UI, etc. to get the live cryptocurrency prices from the internet
 
 ### Steps to run the project:
 
